@@ -1,0 +1,12 @@
+{
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.rulers": [80],
+  "editor.tabSize": 2,
+  // Set the default
+  "editor.formatOnSave": false,
+  // Enable per-language
+  "[csharp]": {
+    "editor.defaultFormatter": "csharpier.csharpier-vscode",
+    "editor.formatOnSave": true
+  }
+}
