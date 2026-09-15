@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "ms-dotnettools.csharp",
+    "csharpier.csharpier-vscode",
+    "geequlim.godot-tools"
+  ]
+}

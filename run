@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+cd "$ROOT"
+
+usage() {
+    cat <<'EOF'
+Usage: ./run <command>
+
+Commands:
+  build   Build and start game-server (detached)
+  logs    Follow game-server logs
+  watch   Rebuild game-server on source changes (foreground)
+  down    Stop and remove compose stack
+  stop    Graceful SIGTERM stop of game-server
+EOF
+}
+
+case "${1:-}" in
+build)
+    docker compose up --build -d game-server
+    ;;
+logs)
+    docker compose logs -f game-server
+    ;;
+watch)
+    docker compose watch game-server
+    ;;
+down)
+    docker compose down
+    ;;
+stop)
+    docker compose stop game-server
+    ;;
+*)
+    usage
+    exit 1
+    ;;
+esac

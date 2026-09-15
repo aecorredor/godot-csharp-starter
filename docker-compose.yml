@@ -1,0 +1,34 @@
+services:
+  game-server:
+    # Server Linux export is x86_64 (export_presets.cfg); arm64 runtime lacks
+    # ld-linux-x86-64.so.2 on Apple Silicon.
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: docker/server/Dockerfile
+      args:
+        # debug matches editor RPC checksums; use release for production images.
+        GODOT_EXPORT: debug
+    # Publishes UDP 7000 on 0.0.0.0 on the host — LAN clients use the host's LAN IP, not the container IP.
+    ports:
+      - "7000:7000/udp"
+    environment:
+      GAME_BIND_PORT: "7000"
+      GAME_MAX_PLAYERS: "8"
+      GAME_VERSION: "0.0.1"
+    develop:
+      watch:
+        - path: ./src
+          action: rebuild
+        - path: ./scenes
+          action: rebuild
+        - path: ./assets
+          action: rebuild
+        - path: ./docker/server
+          action: rebuild
+        - path: ./project.godot
+          action: rebuild
+        - path: ./export_presets.cfg
+          action: rebuild
+        - path: ./starter-template.csproj
+          action: rebuild

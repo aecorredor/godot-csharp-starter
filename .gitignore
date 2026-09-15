@@ -1,2 +1,40 @@
 # Godot 4+ specific ignores
 .godot/
+
+# Mono-specific ignores
+.mono/
+data_*/
+mono_crash.*.json
+
+# Build outputs
+obj/
+build/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.old.*
+
+# Package files
+*.nupkg
+*.snupkg
+
+# Crash reports
+crash_*

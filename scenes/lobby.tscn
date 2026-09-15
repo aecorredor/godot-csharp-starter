@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwk0gnndkubrt"]
+
+[ext_resource type="Script" uid="uid://qpxm3qtfllcq" path="res://src/demo/LobbyController.cs" id="1_lobby"]
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lobby")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "starter-template — Lobby"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ClientSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ClientSection"]
+layout_mode = 2
+
+[node name="AddressLabel" type="Label" parent="VBoxContainer/ClientSection/HBoxContainer"]
+layout_mode = 2
+text = "Server:"
+
+[node name="AddressInput" type="LineEdit" parent="VBoxContainer/ClientSection/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "127.0.0.1:7000"
+placeholder_text = "127.0.0.1:7000"
+
+[node name="JoinServerButton" type="Button" parent="VBoxContainer/ClientSection"]
+layout_mode = 2
+text = "Join Server"
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Status: Ready"
+horizontal_alignment = 1
+
+[node name="PlayersList" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayersLabel" type="Label" parent="VBoxContainer/PlayersList"]
+layout_mode = 2
+text = "Connected Players:"
+
+[node name="PlayersContainer" type="VBoxContainer" parent="VBoxContainer/PlayersList"]
+layout_mode = 2
